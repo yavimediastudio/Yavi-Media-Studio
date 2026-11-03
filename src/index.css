@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Syne', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --background: #0F0F0F;
+    --foreground: #F5F5F3;
+    --card: #181818;
+    --card-foreground: #F5F5F3;
+    --primary: #7F77DD;
+    --primary-foreground: #0F0F0F;
+    --secondary: #1E1E1E;
+    --secondary-foreground: #F5F5F3;
+    --muted: #1E1E1E;
+    --muted-foreground: #A1A1AA;
+    --border: rgba(245, 245, 243, 0.12);
+    --input: rgba(245, 245, 243, 0.18);
+    --ring: #7F77DD;
+    --paper: #F5F5F3;
+    --paper-foreground: #0F0F0F;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
+
+  /* Exact heading rule from yavi-creative-studio.lovable.app */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Lovable Studio Display Font (Syne) & Sans (Manrope) */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Container site matching Lovable */
+.container-site {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-site {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Eyebrow badge from Lovable */
+.eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #7F77DD;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Button styles from Lovable */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: #7F77DD;
+  color: #0F0F0F;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(127, 119, 221, 0.3);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 245, 243, 0.12);
+  background-color: transparent;
+  color: #F5F5F3;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background-color: #181818;
+  border-color: rgba(245, 245, 243, 0.25);
+  color: #FFFFFF;
+}
+
+/* Grid lines background with 20% visibility */
+.grid-lines {
+  background-image: linear-gradient(to right, rgba(245, 245, 243, 0.20) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(245, 245, 243, 0.20) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Rise animation from Lovable */
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Studio card */
+.studio-card {
+  background-color: #181818;
+  border: 1px solid rgba(245, 245, 243, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-card:hover {
+  border-color: rgba(127, 119, 221, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 245, 243, 0.14);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(127, 119, 221, 0.5);
+}

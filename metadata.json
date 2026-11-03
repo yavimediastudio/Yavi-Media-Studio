@@ -1,0 +1,6 @@
+{
+  "name": "Yavi Media Studio",
+  "description": "Estudio creativo independiente en Barranquilla, Colombia. Especializado en diseño gráfico, identidad visual, diseño web con Lovable, redes sociales y producción audiovisual.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

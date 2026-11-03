@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://yavimediastudio.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#home" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#home" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#services</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#services" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#portfolio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#portfolio" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#contact</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#about</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#process</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#process" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#process" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#faq</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yavimediastudio.com/#faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yavimediastudio.com/#faq" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://yavimediastudio.com/#privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
