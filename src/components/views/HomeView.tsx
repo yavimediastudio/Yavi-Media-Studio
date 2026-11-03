@@ -18,6 +18,8 @@ import {
   Share2,
 } from 'lucide-react';
 
+import heroWorkspaceImg from '../../assets/images/hero_creative_workspace_1793512043090.jpg';
+
 export const HomeView: React.FC = () => {
   const { language, setCurrentPage, t } = useLanguage();
 
@@ -26,6 +28,7 @@ export const HomeView: React.FC = () => {
   }, [language, t]);
 
   const [activeModalProject, setActiveModalProject] = useState<PortfolioItem | null>(null);
+  const [heroImgFailed, setHeroImgFailed] = useState(false);
 
   // Featured services subset
   const featuredServices = SERVICES_DATA.filter(
@@ -57,17 +60,17 @@ export const HomeView: React.FC = () => {
   return (
     <div className="w-full text-[#F5F5F3]">
       
-      {/* 1. HERO SECTION (EXACT REPLICA OF USER SCREENSHOT) */}
+      {/* 1. HERO SECTION (WITH HIGH-END STUDIO AGENCY SHOWCASE) */}
       <section className="relative overflow-hidden border-b border-border bg-[#0F0F0F]">
         {/* Full architectural grid background at exact 20% visibility */}
         <div className="grid-lines absolute inset-0 pointer-events-none" aria-hidden="true" />
         
-        <div className="container-site relative py-16 md:py-24 lg:py-28">
+        <div className="container-site relative py-16 md:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[72vh]">
             
             {/* Left Column: Eyebrow + Huge Stacked Title + Description + Buttons */}
             <div className="lg:col-span-7 animate-rise z-10">
-              {/* Eyebrow badge matching screenshot */}
+              {/* Eyebrow badge */}
               <p className="eyebrow mb-8 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary shrink-0 shadow-[0_0_8px_#7F77DD]" />
                 <span className="text-muted-foreground font-semibold">
@@ -75,7 +78,7 @@ export const HomeView: React.FC = () => {
                 </span>
               </p>
 
-              {/* Exact Stacked Headline from Screenshot */}
+              {/* Stacked Headline */}
               <h1 className="font-display font-extrabold text-5xl sm:text-7xl md:text-8xl xl:text-9xl leading-[0.9] tracking-tight">
                 <span className="text-foreground block">
                   Ideas<br />
@@ -91,14 +94,14 @@ export const HomeView: React.FC = () => {
                 </span>
               </h1>
 
-              {/* Exact Description text from Screenshot */}
+              {/* Description text */}
               <p className="mt-8 max-w-lg text-sm sm:text-base text-muted-foreground leading-relaxed font-normal">
                 {language === 'es'
                   ? 'Somos un estudio creativo independiente que transforma ideas en soluciones visuales y digitales. Diseñamos marcas, desarrollamos experiencias web y creamos comunicación visual para negocios que quieren avanzar.'
                   : 'We are an independent creative studio that turns ideas into visual and digital solutions. We design brands, build web experiences and create visual communication for businesses ready to move forward.'}
               </p>
 
-              {/* Action Buttons matching screenshot */}
+              {/* Action Buttons */}
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => setCurrentPage('services')}
@@ -117,24 +120,81 @@ export const HomeView: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Bauhaus Geometric Composition from Screenshot */}
-            <div className="relative hidden lg:block lg:col-span-5 aspect-square" aria-hidden="true">
-              {/* Outer thin circular outline */}
-              <div className="absolute inset-[8%] rounded-full border border-white/10" />
+            {/* Right Column: Yavi Media Studio Agency Visual Showcase */}
+            <div className="lg:col-span-5 relative mt-8 lg:mt-0 animate-rise" style={{ animationDelay: '150ms' }}>
+              {/* Ambient studio glow background */}
+              <div 
+                className="absolute -inset-4 bg-gradient-to-tr from-primary/30 via-purple-600/10 to-transparent rounded-3xl blur-2xl opacity-60 pointer-events-none" 
+                aria-hidden="true" 
+              />
 
-              {/* Solid purple circle */}
-              <div className="absolute left-[18%] top-[18%] h-[46%] w-[46%] rounded-full bg-primary shadow-2xl" />
+              {/* Architectural Card Container */}
+              <div className="relative rounded-2xl border border-white/15 bg-[#141414]/90 p-3 sm:p-4 shadow-2xl backdrop-blur-md">
+                {/* Header sub-bar with studio indicator */}
+                <div className="flex items-center justify-between pb-3 px-1 text-xs text-muted-foreground border-b border-white/10 mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+                    <span className="font-mono text-[11px] tracking-wider uppercase text-[#F5F5F3]">
+                      YAVI MEDIA STUDIO
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-mono text-muted-foreground/80">
+                    BARRANQUILLA · COL
+                  </span>
+                </div>
 
-              {/* Solid white paper square */}
-              <div className="absolute bottom-[12%] right-[10%] h-[42%] w-[42%] bg-paper shadow-2xl z-10" />
+                {/* Main Photograph Frame */}
+                <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-[#0A0A0A] group">
+                  {!heroImgFailed ? (
+                    <img
+                      src={heroWorkspaceImg}
+                      alt={language === 'es' ? 'Yavi Media Studio — Agencia creativa y espacio de trabajo' : 'Yavi Media Studio — Creative agency and workspace'}
+                      referrerPolicy="no-referrer"
+                      onError={() => setHeroImgFailed(true)}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-[#18181B] to-[#09090B] text-center">
+                      <Palette className="w-10 h-10 text-primary mb-3" />
+                      <p className="font-display font-bold text-foreground text-sm uppercase tracking-wider">Yavi Media Studio</p>
+                      <p className="text-xs text-muted-foreground mt-1">Creative Agency & Visual Production</p>
+                    </div>
+                  )}
 
-              {/* Offset wireframe square */}
-              <div className="absolute bottom-[12%] right-[10%] h-[42%] w-[42%] translate-x-4 translate-y-4 border border-white/20 z-0" />
+                  {/* Gradient Scrim for readable overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
 
-              {/* Bottom Caption matching screenshot */}
-              <p className="absolute bottom-0 left-0 font-display text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                {language === 'es' ? 'LA RESOLUCIÓN DE LO APRENDIDO.' : 'TURNING WHAT WE’VE LEARNED INTO SOLUTIONS.'}
-              </p>
+                  {/* Top-Right Badge: Studio Status */}
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[11px] font-medium text-white shadow-sm">
+                      <Sparkles className="w-3 h-3 text-[#7F77DD]" />
+                      <span>{language === 'es' ? 'Estudio Creativo' : 'Creative Studio'}</span>
+                    </span>
+                  </div>
+
+                  {/* Bottom Text inside the image */}
+                  <div className="absolute bottom-3 left-3 right-3 z-10 flex items-end justify-between gap-3 text-white">
+                    <div>
+                      <p className="text-xs font-semibold tracking-wide text-white drop-shadow-md">
+                        {language === 'es' ? 'Diseño de Marca & Estrategia Visual' : 'Brand Identity & Visual Strategy'}
+                      </p>
+                      <p className="text-[11px] text-white/70 drop-shadow-sm mt-0.5">
+                        {language === 'es' ? 'Dirección de arte · Producción digital · Web' : 'Art direction · Digital production · Web'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer caption line */}
+                <div className="mt-3 pt-2.5 px-1 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
+                  <span className="tracking-widest uppercase">
+                    {language === 'es' ? 'LA RESOLUCIÓN DE LO APRENDIDO' : 'TURNING IDEAS INTO SOLUTIONS'}
+                  </span>
+                  <span className="text-[#7F77DD] font-semibold">
+                    EST. 2024
+                  </span>
+                </div>
+              </div>
             </div>
 
           </div>
