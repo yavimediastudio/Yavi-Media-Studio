@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { MessageSquare, Settings, Check, X } from 'lucide-react';
+import { STUDIO_CONTACT_INFO } from '../../data/faqData';
 
 export const WhatsAppButton: React.FC = () => {
   const { language, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState<string>(() => {
-    return localStorage.getItem('yavi_whatsapp') || '573000000000';
+    const stored = localStorage.getItem('yavi_whatsapp');
+    if (stored && stored !== '573000000000') {
+      return stored;
+    }
+    return STUDIO_CONTACT_INFO.whatsappNumber;
   });
   const [tempNumber, setTempNumber] = useState(phoneNumber);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -51,14 +56,14 @@ export const WhatsAppButton: React.FC = () => {
             <div>
               <label className="block text-[11px] text-white/70 mb-1">
                 {language === 'es'
-                  ? 'Número con código de país (ej: 573001234567):'
-                  : 'Number with country code (e.g., 573001234567):'}
+                  ? 'Número con código de país (ej: 573013721613):'
+                  : 'Number with country code (e.g., 573013721613):'}
               </label>
               <input
                 type="text"
                 value={tempNumber}
                 onChange={(e) => setTempNumber(e.target.value)}
-                placeholder="573001234567"
+                placeholder="573013721613"
                 className="w-full px-3 py-1.5 text-xs bg-white/5 border border-white/20 rounded-lg text-white focus:outline-none focus:border-[#7F77DD]"
               />
             </div>

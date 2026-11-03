@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { updateDocumentHead } from '../../utils/seo';
 import { SERVICES_DATA } from '../../data/servicesData';
-import { PORTFOLIO_DATA, heroWorkspaceImg } from '../../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
+import { STUDIO_CONTACT_INFO } from '../../data/faqData';
 import { ProjectModal } from '../common/ProjectModal';
 import { PortfolioItem } from '../../types';
 import {
@@ -295,7 +296,7 @@ export const HomeView: React.FC = () => {
 
           {/* Selected Projects Grid (Exact Lovable ProjectCard style) */}
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.slice(0, 3).map((project) => (
+            {PORTFOLIO_DATA.slice(0, 6).map((project) => (
               <div
                 key={project.id}
                 onClick={() => setActiveModalProject(project)}
@@ -312,6 +313,11 @@ export const HomeView: React.FC = () => {
                   <div className="absolute top-3 right-3 bg-black/75 backdrop-blur-md px-2.5 py-0.5 rounded text-[11px] font-mono text-muted-foreground border border-border">
                     {project.year}
                   </div>
+                  {project.client && (
+                    <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[11px] font-medium text-foreground border border-border/80">
+                      {project.client}
+                    </div>
+                  )}
                 </div>
 
                 <p className="eyebrow mt-4">
@@ -471,8 +477,17 @@ export const HomeView: React.FC = () => {
               </button>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/[0.08] text-xs text-white/50 flex flex-col sm:flex-row items-center justify-center gap-2">
+            <div className="mt-8 pt-6 border-t border-white/[0.08] text-xs text-white/50 flex flex-wrap items-center justify-center gap-2">
               <span>{t('brand.location')}</span>
+              <span className="hidden sm:inline text-white/30">·</span>
+              <a
+                href={`https://wa.me/${STUDIO_CONTACT_INFO.whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#25D366] hover:underline"
+              >
+                WhatsApp: {STUDIO_CONTACT_INFO.whatsappDisplay}
+              </a>
               <span className="hidden sm:inline text-white/30">·</span>
               <span className="text-[#7F77DD]">yavimediastudio@gmail.com</span>
               <span className="hidden sm:inline text-white/30">·</span>

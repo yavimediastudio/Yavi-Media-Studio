@@ -129,7 +129,8 @@ export const STUDIO_CONTACT_INFO = {
   email: 'yavimediastudio@gmail.com',
   city: 'Barranquilla, Atlántico',
   country: 'Colombia',
-  whatsappNumber: '573000000000', // Editable in UI or Settings
+  whatsappNumber: '573013721613',
+  whatsappDisplay: '+57 301 372 1613',
   hours: {
     es: {
       weekdays: 'Lunes a viernes: 8:00 a. m. a 6:00 p. m.',

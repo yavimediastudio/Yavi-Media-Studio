@@ -3,7 +3,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { StudioLogo } from '../common/StudioLogo';
 import { PageId } from '../../types';
 import { STUDIO_CONTACT_INFO } from '../../data/faqData';
-import { Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import { Mail, MapPin, Clock, ArrowUpRight, MessageSquare } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { language, setCurrentPage, t } = useLanguage();
@@ -42,6 +42,17 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors underline decoration-white/20 underline-offset-4"
                 >
                   {STUDIO_CONTACT_INFO.email}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MessageSquare className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                <a
+                  href={`https://wa.me/${STUDIO_CONTACT_INFO.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-[#25D366] transition-colors underline decoration-white/20 underline-offset-4"
+                >
+                  WhatsApp: {STUDIO_CONTACT_INFO.whatsappDisplay}
                 </a>
               </div>
             </div>

@@ -47,7 +47,8 @@ export const PortfolioView: React.FC = () => {
       const descMatch = project.description[language].toLowerCase().includes(query);
       const roleMatch = project.studioRole[language].toLowerCase().includes(query);
       const catMatch = project.categoryLabel[language].toLowerCase().includes(query);
-      return titleMatch || descMatch || roleMatch || catMatch;
+      const clientMatch = project.client ? project.client.toLowerCase().includes(query) : false;
+      return titleMatch || descMatch || roleMatch || catMatch || clientMatch;
     });
   }, [activeCategory, searchQuery, language]);
 
@@ -208,11 +209,21 @@ export const PortfolioView: React.FC = () => {
                   <div className="absolute top-3 right-3 bg-black/75 backdrop-blur-md px-2.5 py-0.5 rounded text-[11px] font-mono text-muted-foreground border border-border">
                     {project.year}
                   </div>
+                  {project.client && (
+                    <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded text-[11px] font-medium text-foreground border border-border/80">
+                      {project.client}
+                    </div>
+                  )}
                 </div>
 
-                <p className="eyebrow mt-4">
-                  {project.categoryLabel[language]}
-                </p>
+                <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                  <p className="eyebrow">
+                    {project.categoryLabel[language]}
+                  </p>
+                  {project.pdfUrl && (
+                    <span className="text-[10px] font-mono text-primary font-semibold">PDF MANUAL</span>
+                  )}
+                </div>
 
                 <h3 className="mt-1 text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-snug">
                   {project.title}

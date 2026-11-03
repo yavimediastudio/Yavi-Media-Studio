@@ -129,7 +129,8 @@ export const ContactView: React.FC = () => {
   };
 
   const handleSendViaWhatsApp = () => {
-    const phone = localStorage.getItem('yavi_whatsapp') || STUDIO_CONTACT_INFO.whatsappNumber;
+    const stored = localStorage.getItem('yavi_whatsapp');
+    const phone = (stored && stored !== '573000000000') ? stored : STUDIO_CONTACT_INFO.whatsappNumber;
     const text = encodeURIComponent(generateBriefText());
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank', 'noopener,noreferrer');
   };
@@ -171,6 +172,18 @@ export const ContactView: React.FC = () => {
               </h3>
 
               <div className="space-y-4 text-xs">
+                <div>
+                  <span className="text-white/40 block mb-1">WhatsApp</span>
+                  <a
+                    href={`https://wa.me/${STUDIO_CONTACT_INFO.whatsappNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-semibold text-[#25D366] hover:underline flex items-center gap-2"
+                  >
+                    <span>{STUDIO_CONTACT_INFO.whatsappDisplay}</span>
+                  </a>
+                </div>
+
                 <div>
                   <span className="text-white/40 block mb-1">{t('contact.info.email')}</span>
                   <a

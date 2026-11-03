@@ -30,8 +30,13 @@ export interface PortfolioItem {
   servicesDone: { es: string[]; en: string[] };
   image: string;
   year: string;
+  client?: string;
   deliverables?: { es: string[]; en: string[] };
   highlightMetric?: { es: string; en: string };
+  pdfUrl?: string;
+  gallery?: { type: string; src: string; alt_es?: string; alt_en?: string }[];
+  tools?: string[];
+  externalUrl?: string;
 }
 
 export interface ServiceItem {
